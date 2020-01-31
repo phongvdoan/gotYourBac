@@ -54,4 +54,6 @@ Non-functional requirements are requirements that are not directly related to th
 
 Security  - The user can access their page only. They have to sign in to use the different app functionality. The password with be encrypted to give full security to the user.
 
+Usability - User should be able to navigate the site without any issue. Users will be navigated to the appropriate page without having to go into the multiple pages.
+
 
