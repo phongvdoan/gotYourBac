@@ -21,7 +21,13 @@ BAC level are unique to each individual so they have one to one relationship.
 ![ERD](/assets/database.png)
 
 ## WireFrame
-![ERD](/assets/Wireframe.jpg)
+![wireframe](/assets/Wireframe.jpg)
+
+## Domain Modeling
+![wireframe](/assets/domainModel.jpg)
+
+
+
 
 
 
