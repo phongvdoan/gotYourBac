@@ -24,7 +24,13 @@ BAC level are unique to each individual so they have one to one relationship.
 ![wireframe](/assets/Wireframe.jpg)
 
 ## Domain Modeling
-![wireframe](/assets/domainModel.jpg)
+![Domain Model](/assets/domainModel.jpg)
+
+## Setup instructions
+
+- Edit Configuration for the App on the top mid right dropdown menu.
+- In the Environment Variable:
+    - type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
 
 
 
