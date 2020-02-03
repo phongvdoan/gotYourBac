@@ -27,6 +27,7 @@ public class UserController {
     public RedirectView createNewUser(String username, String password, String firstName, String lastName, String gender, double height, float weight) {
         ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstName, lastName, gender, height, weight);
         applicationUserRepository.save(newUser);
+        //
         return new RedirectView("/");
     }
 }
