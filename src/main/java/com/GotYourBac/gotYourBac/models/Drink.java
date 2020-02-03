@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Drink {
 
+    //TODO: probably need some getters and setters depending on the app, but lets safely add each one we need throughout the process.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
