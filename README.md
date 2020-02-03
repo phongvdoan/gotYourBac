@@ -25,7 +25,13 @@ This wireframe provides the structure for the rest of the pages in our website
 ![wireframe](/assets/Wireframes.jpg)
 
 ## Domain Modeling
-![Domain Modeling](/assets/domainModel.jpg)
+![Domain Model](/assets/domainModel.jpg)
+
+## Setup instructions
+
+- Edit Configuration for the App on the top mid right dropdown menu.
+- In the Environment Variable:
+    - type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
 
 
 
