@@ -12,3 +12,28 @@
 * Minimum MVP would be for a user to select drink options from a menu list and be returned with an estimated BAC .
 
 [Link to Trello](https://trello.com/b/1XmX43HL)
+
+
+## Database Entity Relationship Diagram
+Users and the drinks have many to many relationship because one user can have more than one type of drinks and many user can have the same drink. 
+BAC level are unique to each individual so they have one to one relationship.
+
+![ERD](/assets/database.png)
+
+## WireFrame
+![wireframe](/assets/Wireframe.jpg)
+
+## Domain Modeling
+![Domain Model](/assets/domainModel.jpg)
+
+## Setup instructions
+
+- Edit Configuration for the App on the top mid right dropdown menu.
+- In the Environment Variable:
+    - type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
+
+
+
+
+
+
