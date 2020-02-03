@@ -9,35 +9,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>GotYourBAC</h1>
-        <nav>
-            <ul>
-                <li>Sign up</li>
-                <li>Log in</li>
-            </ul>
-        </nav>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Profile</li>
-                <li>Calculate BAC</li>
-                <li>Log out</li>
-            </ul>
-        </nav>
-    </header>
+    <header th:insert="fragments/header.html :: header"></header>
     <main>
+        <nav th:insert="fragments/navigation.html :: navigation"></nav>
         <h2>Welcome to GotYourBAC</h2>
-
-        <form action="">
-            Username: <input type="text" name="username">
-            Password: <input type="password" name="password">
-        </form>
     </main>
 
-    <footer>
-        &copy gotYourBAC
-    </footer>
+    <footer th:insert="fragments/footer.html :: footer"></footer>
 
 </body>
 </html>
