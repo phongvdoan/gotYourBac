@@ -5,25 +5,22 @@
     <title>Registration</title>
 </head>
 <body>
-<header>
-
-</header>
-<main>
-    <h2>Register new user</h2>
-    <h3> placeholder text</h3>
-    <form action="/registration" method="POST">
-        UserName: <input type="text" name="username">
-        Password: <input type="password" name="password">
-        First Name: <input type="text" name="firstName">
-        Last Name: <input type="text" name="lastName">
-        Gender: <input type="text" name="gender">
-        Height: <input type="number" name="height">
-        Weight: <input type="number" name="weight">
-        <button type="submit">Submit</button>
-    </form>
-</main>
-<footer>
-
-</footer>
+    <header th:insert="fragments/header.html :: header"></header>
+    <main>
+        <nav th:insert="fragments/navigation.html :: navigation"></nav>
+        <h2>Register new user</h2>
+        <h3> placeholder text</h3>
+        <form action="/registration" method="POST">
+            UserName: <input type="text" name="username">
+            Password: <input type="password" name="password">
+            First Name: <input type="text" name="firstName">
+            Last Name: <input type="text" name="lastName">
+            Gender: <input type="text" name="gender">
+            Height: <input type="number" name="height">
+            Weight: <input type="number" name="weight">
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer th:insert="fragments/footer.html :: footer"></footer>
 </body>
 </html>
