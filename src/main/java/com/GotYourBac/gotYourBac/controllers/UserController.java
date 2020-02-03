@@ -34,4 +34,11 @@ public class UserController {
         //TODO: change the redirect route to what we decide. For now its to the homepagegit
         return new RedirectView("/");
     }
+
+
+//TODO: If separate login page is needed then uncomment route.
+//    @GetMapping("/login")
+//    public String loginAsAUser(){
+//        return "login";
+//    }
 }
