@@ -18,17 +18,20 @@
 Users and the drinks have many to many relationship because one user can have more than one type of drinks and many user can have the same drink. 
 BAC level are unique to each individual so they have one to one relationship.
 
-![ERD](/assets/erd.png)
+
+![ERD](assets/database.png)
 
 ## WireFrame
 This wireframe provides the structure for the rest of the pages in our website
-![wireframe](/assets/Wireframes.jpg)
+![wireframe](assets/wireframe.jpg)
 
 ## Domain Modeling
-![Domain Model](/assets/domainModel.jpg)
+![Domain Model](assets/domainModel.jpg)
 
 ## Setup instructions
 
+- On terminal, type `psql`
+- type `CREATE DATABASE gotyourbac;`
 - Edit Configuration for the App on the top mid right dropdown menu.
 - In the Environment Variable:
     - type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
