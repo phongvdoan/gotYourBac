@@ -12,9 +12,9 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/balmerpeekinfo")
+    @GetMapping("/balmerPeekInfo")
     public String getBalmerPeekInfo() {
-        return "balmerpeek";
+        return "balmerPeek";
     }
 
     @GetMapping("/error")
