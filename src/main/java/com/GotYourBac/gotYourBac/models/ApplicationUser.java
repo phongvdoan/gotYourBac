@@ -12,24 +12,25 @@ public class ApplicationUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    long id;
 
     @OneToMany(mappedBy = "appUser")
     List<Drink> drinkList;
 
-    public String username;
-    public String password;
-    public String firstName;
-    public String lastName;
-    public String gender;
-    public double height;
-    public float weight;
+    String username;
+    String password;
+    String firstName;
+    String lastName;
+    String gender;
+    double height;
+    float weight;
+    String profilepic;
 
 
     public ApplicationUser() {
     }
 
-    public ApplicationUser(String username, String password, String firstName, String lastName, String gender, double height, float weight) {
+    public ApplicationUser(String username, String password, String firstName, String lastName, String gender, double height, float weight, String profilepic) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
@@ -37,6 +38,7 @@ public class ApplicationUser implements UserDetails {
         this.gender = gender;
         this.height = height;
         this.weight = weight;
+        this.profilepic = profilepic;
     }
 
     @Override
@@ -74,5 +76,27 @@ public class ApplicationUser implements UserDetails {
         return true;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public String getProfilepic() {
+        return profilepic;
+    }
 }
