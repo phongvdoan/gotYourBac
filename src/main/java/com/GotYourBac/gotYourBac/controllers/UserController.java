@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
@@ -51,16 +52,15 @@ public class UserController {
         return "profile";
     }
 
-    @GetMapping("/update")
+    @GetMapping("/profile/update")
     public String getUpdatePage(Principal p, Model m) {
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
         m.addAttribute("loggedInUser", loggedInUser);
         return "profileUpdate";
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public RedirectView updateUser(Principal p, String username, String firstName, String lastName, String gender, String height, String weight) {
-        System.out.println("weight = " + weight);
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
         loggedInUser.setUsername(username);
         loggedInUser.setFirstName(firstName);
