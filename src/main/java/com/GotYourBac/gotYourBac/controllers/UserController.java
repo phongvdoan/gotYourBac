@@ -3,14 +3,11 @@ package com.GotYourBac.gotYourBac.controllers;
 import com.GotYourBac.gotYourBac.models.ApplicationUser;
 import com.GotYourBac.gotYourBac.models.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
-import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -20,7 +17,6 @@ public class UserController {
 
     //autowired passwordEncoder to use BCrypt for unique password.
     //TODO: Lets look at having a minimum password requirement.
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -59,4 +55,13 @@ public class UserController {
 //    public String loginAsAUser(){
 //        return "login";
 //    }
+        //TODO: change the redirect route to what we decide. For now its to the homepage
+
+
+
+
+    @GetMapping("/login")
+    public String loginAsAUser(){
+        return "login";
+    }
 }

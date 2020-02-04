@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,7 +36,15 @@ class GotYourBacApplicationTests {
 		this.mockMvc.perform(get("/"))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(content().string("<h2>Make new users here</h2>"));
+				.andExpect(content().string(containsString("<h2>Welcome to GotYourBAC</h2>")));
+	}
+
+	@Test
+	public void shouldHaveRegistrationPage() throws Exception {
+		this.mockMvc.perform(get("/registration"))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andExpect(content().string(containsString("<h2>Register new user</h2>")));
 	}
 
 
