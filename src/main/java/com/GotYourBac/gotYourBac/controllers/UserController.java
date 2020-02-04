@@ -5,9 +5,12 @@ import com.GotYourBac.gotYourBac.models.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -29,7 +32,7 @@ public class UserController {
     //Create a new user in DB, ensure we don't user Postgresql pre-defined variables. i.e 'user'
     @PostMapping("/registration")
     public RedirectView createNewUser(String username, String password, String firstName, String lastName, String gender, double height, float weight) {
-        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstName, lastName, gender, height, weight);
+        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstName, lastName, gender, height, weight, "https://www.google.com/url?sa=i&url=https%3A%2F%2Fclipartart.com%2Fcategories%2Fdefault-profile-picture-clipart.html&psig=AOvVaw3gGdfGo9_wPSjyhzCtcWKY&ust=1580936665717000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJCKpZTmuOcCFQAAAAAdAAAAABAD" );
         applicationUserRepository.save(newUser);
         //TODO: change the redirect route to what we decide. For now its to the homepagegit
         return new RedirectView("/");
@@ -49,15 +52,6 @@ public class UserController {
 //        applicationUserRepository.save(loggedInUser);
 //        return "profileUpdate";
 //    }
-
-//TODO: If separate login page is needed then uncomment route.
-//    @GetMapping("/login")
-//    public String loginAsAUser(){
-//        return "login";
-//    }
-        //TODO: change the redirect route to what we decide. For now its to the homepage
-
-
 
 
     @GetMapping("/login")
