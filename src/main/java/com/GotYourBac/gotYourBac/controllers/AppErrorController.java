@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 //https://www.baeldung.com/spring-boot-custom-error-page
 @Controller
-public class appErrorController implements ErrorController {
+public class AppErrorController implements ErrorController {
 
     //TODO: add some logging later
     @GetMapping("/error")
