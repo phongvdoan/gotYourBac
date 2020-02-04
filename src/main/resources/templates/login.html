@@ -6,7 +6,7 @@
 </head>
 <body>
 <div th:if="${param.error}">
-    <p>Could not recognize that username or password. Please try again.</p>
+    <p>Username and/or password was incorrect. Please try again.</p>
 </div>
 <form action="/login" method="post">
     Username: <input type="text" name="username">
