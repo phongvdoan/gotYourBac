@@ -1,55 +1,33 @@
 package com.GotYourBac.gotYourBac.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Drink {
 
+    //TODO: probably need some getters and setters depending on the app, but lets safely add each one we need throughout the process.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
-    private String strIngredient;
-    private float strABV;
-    private int numOfDrinks;
-    private float drinkSize;
+    @ManyToOne
+    ApplicationUser appUser;
+
+    String drinkName;
+    float alcoholContent;
+    int numOfDrinks;
+    float drinkSize;
 
     public Drink() {
     }
 
     public Drink(String drinkName, float alcoholContent, int numOfDrinks, float drinkSize) {
-        this.strIngredient = drinkName;
-        this.strABV = alcoholContent;
+        this.drinkName=drinkName;
+        this.alcoholContent = alcoholContent;
         this.numOfDrinks = numOfDrinks;
         this.drinkSize = drinkSize;
     }
 
-    @Override
-    public String toString() {
-        return "Drink{" +
-                "strIngredient='" + strIngredient + '\'' +
-                ", strABV=" + strABV +
-                ", numOfDrinks=" + numOfDrinks +
-                '}';
-    }
 
-    public String getAlcoholName() {
-        return strIngredient;
-    }
-
-    public float getAlcoholContent() {
-        return strABV;
-    }
-
-    public int getNumOfDrinks() {
-        return numOfDrinks;
-    }
-
-    public float getDrinkSize() {
-        return drinkSize;
-    }
 
 }
