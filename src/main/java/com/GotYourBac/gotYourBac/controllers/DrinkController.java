@@ -7,6 +7,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -16,6 +17,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.Principal;
+import java.util.List;
 
 
 @Controller
@@ -28,11 +31,11 @@ public class DrinkController {
     public String goHome() {
         return "drinks";
     }
+    @PostMapping("/addDrinks")
+    public RedirectView addDrinks(Principal p, Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException {
 
-
-    @PostMapping("/addDrink")
-    public RedirectView addDrinks(String drinkName, int numberOfDrinks, float drinkSize) throws IOException {
         Gson gson = new Gson();
+        List<Drink> drinksList = drinkRepository.findAll();
         URL url = new URL("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=" + drinkName);
         HttpURLConnection apiConnection = (HttpURLConnection) url.openConnection();
         apiConnection.setRequestMethod("GET");
@@ -44,6 +47,8 @@ public class DrinkController {
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
         Drink drink = new Drink(newDrink.getDrinkName(), newDrink.getAlcoholContent(), numberOfDrinks, drinkSize);
         drinkRepository.save(drink);
+        m.addAttribute("drinksList", drinksList);
+
         return new RedirectView("/addDrinks");
     }
 }
