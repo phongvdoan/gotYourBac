@@ -54,9 +54,6 @@ public class UserController {
 //        return "profileUpdate";
 //    }
 
-
-
-
 //TODO: If separate login page is needed then uncomment route.
 //    @GetMapping("/login")
 //    public String loginAsAUser(){
