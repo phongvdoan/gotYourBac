@@ -51,11 +51,26 @@ public class UserController {
         return "profile";
     }
 
-//    @PutMapping("/update/{id}")
-//    public @ResponseBody String updateUser(@RequestBody ApplicationUser loggedInUser) {
-//        applicationUserRepository.save(loggedInUser);
-//        return "profileUpdate";
-//    }
+    @GetMapping("/update")
+    public String getUpdatePage(Principal p, Model m) {
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("loggedInUser", loggedInUser);
+        return "profileUpdate";
+    }
+
+    @PostMapping("/update")
+    public RedirectView updateUser(Principal p, String username, String firstName, String lastName, String gender, String height, String weight) {
+        System.out.println("weight = " + weight);
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        loggedInUser.setUsername(username);
+        loggedInUser.setFirstName(firstName);
+        loggedInUser.setLastName(lastName);
+        loggedInUser.setGender(gender);
+        loggedInUser.setHeight(Double.parseDouble(height));
+        loggedInUser.setWeight(Float.parseFloat(weight));
+        applicationUserRepository.save(loggedInUser);
+        return new RedirectView("/profile");
+    }
 
 
     @GetMapping("/login")

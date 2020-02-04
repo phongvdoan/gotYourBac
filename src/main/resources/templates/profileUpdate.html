@@ -9,15 +9,14 @@
 </head>
 <body>
     <main>
-<!--        <form th:action="@{update/{id}(id=${loggedInUser.id})}" th:object="${loggedInUser}" th:method="PUT">-->
-
-        <form action="">
-            First Name: <input type="text" name="firstName">
-            Last Name: <input type="text" name="lastName">
-            Gender: <input type="text" name="gender">
-            Height: <input type="text" name="height">
-            Weight: <input type="text" name="weight">
-            <input type="submit">
+        <form action="/update" method="POST">
+            Username: <input type="text" name="username" th:value="${loggedInUser.getUsername()}">
+            First Name: <input type="text" name="firstName" th:value="${loggedInUser.firstName}">
+            Last Name: <input type="text" name="lastName" th:value="${loggedInUser.lastName}">
+            Gender: <input type="text" name="gender" th:value="${loggedInUser.gender}">
+            Height: <input type="text" name="height" th:value="${loggedInUser.height}">
+            Weight: <input type="text" name="weight" th:value="${loggedInUser.weight}">
+            <input type="submit" value="Update">
         </form>
     </main>
 </body>
