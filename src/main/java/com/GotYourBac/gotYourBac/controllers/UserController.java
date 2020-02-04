@@ -29,7 +29,7 @@ public class UserController {
     //Create a new user in DB, ensure we don't user Postgresql pre-defined variables. i.e 'user'
     @PostMapping("/registration")
     public RedirectView createNewUser(String username, String password, String firstName, String lastName, String gender, double height, float weight) {
-        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstName, lastName, gender, height, weight);
+        ApplicationUser newUser = new ApplicationUser(username, passwordEncoder.encode(password), firstName, lastName, gender, height, weight,"/images/profilepic.jpg");
         applicationUserRepository.save(newUser);
         //TODO: change the redirect route to what we decide. For now its to the homepage
         return new RedirectView("/");

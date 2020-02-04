@@ -36,7 +36,7 @@ class GotYourBacApplicationTests {
 		this.mockMvc.perform(get("/"))
 				.andDo(print())
 				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("<h2>Welcome to GotYourBAC</h2>")));
+				.andExpect(content().string(containsString("GotYourBAC is an online calculator for Blood Alcohol Content.")));
 	}
 
 	@Test
