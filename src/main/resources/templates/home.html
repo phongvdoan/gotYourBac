@@ -13,34 +13,14 @@
 </head>
 
 <body>
-
-    <form action="/login" method="post">
-        Username: <input type="text" name="username">
-        Password: <input type="password" name="password">
-        <button type="submit">Log on</button>
-    </form>
+    <header th:insert="fragments/header.html :: header"></header>
+    <main>
+        <nav th:insert="fragments/navigation.html :: navigation"></nav>
+        <h2>Welcome to GotYourBAC</h2>
     </main>
 
+    <footer th:insert="fragments/footer.html :: footer"></footer>
 
-
-    <div class="sideNavContainer">
-        <input data-function="swipe" id="swipe" type="checkbox">
-        <label data-function="swipe" for="swipe">&#xf057;</label>
-        <label data-function="swipe" for="swipe">&#xf0c9;</label>
-
-        <div class="sidebar">
-            <nav class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Calculate</a></li>
-                <li><a href="#">BallmerPeak</a></li>
-            </nav>
-        </div>
-    </div>
-
-    <footer>
-        &copy gotYourBAC
-    </footer>
 </body>
 
 </html>

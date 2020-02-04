@@ -48,12 +48,7 @@ public class DrinkController {
 
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
 
-        Drink drink = new Drink(newDrink.getAlcoholName(), newDrink.getAlcoholContent(), numberOfDrinks, drinkSize);
-
-        System.out.println("drink.getStrIngredient() = " + drink.getAlcoholName());
-        System.out.println("drink.getStrIngredient() = " + drink.getAlcoholContent());
-        System.out.println("drink.getStrIngredient() = " + drink.getNumOfDrinks());
-        System.out.println("drink.getStrIngredient() = " + drink.getDrinkSize());
+        Drink drink = new Drink(newDrink.getDrinkName(), newDrink.getAlcoholContent(), numberOfDrinks, drinkSize);
 
         drinkRepository.save(drink);
 

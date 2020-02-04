@@ -28,6 +28,23 @@ public class Drink {
         this.drinkSize = drinkSize;
     }
 
+    public ApplicationUser getAppUser() {
+        return appUser;
+    }
 
+    public String getDrinkName() {
+        return drinkName;
+    }
 
+    public float getAlcoholContent() {
+        return alcoholContent;
+    }
+
+    public int getNumOfDrinks() {
+        return numOfDrinks;
+    }
+
+    public float getDrinkSize() {
+        return drinkSize;
+    }
 }
