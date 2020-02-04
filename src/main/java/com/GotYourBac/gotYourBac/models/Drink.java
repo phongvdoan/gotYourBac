@@ -1,9 +1,6 @@
 package com.GotYourBac.gotYourBac.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Drink {
@@ -12,6 +9,9 @@ public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+
+    @ManyToOne
+    ApplicationUser appUser;
 
     String drinkName;
     float alcoholContent;
@@ -26,5 +26,25 @@ public class Drink {
         this.alcoholContent = alcoholContent;
         this.numOfDrinks = numOfDrinks;
         this.drinkSize = drinkSize;
+    }
+
+    public ApplicationUser getAppUser() {
+        return appUser;
+    }
+
+    public String getDrinkName() {
+        return drinkName;
+    }
+
+    public float getAlcoholContent() {
+        return alcoholContent;
+    }
+
+    public int getNumOfDrinks() {
+        return numOfDrinks;
+    }
+
+    public float getDrinkSize() {
+        return drinkSize;
     }
 }
