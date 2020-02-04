@@ -40,9 +40,6 @@ This wireframe provides the structure for the rest of the pages in our website
 - In the Environment Variable:
     - type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
 
-## Work Flow 
-### Day 2
-![Day 2 diagram](assets/Day2.jpg)
 
 
 
