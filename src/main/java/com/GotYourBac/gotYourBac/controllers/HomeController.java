@@ -17,8 +17,4 @@ public class HomeController {
         return "balmerPeak";
     }
 
-    @GetMapping("/error")
-    public String getErrorPage(){
-        return "error";
-    }
 }
