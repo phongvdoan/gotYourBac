@@ -24,10 +24,12 @@ public class DrinkController {
     @Autowired
     DrinkRepository drinkRepository;
 
-    @GetMapping("/addDrinks")
+    @GetMapping("/drinks")
     public String goHome() {
         return "drinks";
     }
+
+
     @PostMapping("/addDrinks")
     public RedirectView addDrinks(String drinkName, int numberOfDrinks, float drinkSize) throws IOException {
 
