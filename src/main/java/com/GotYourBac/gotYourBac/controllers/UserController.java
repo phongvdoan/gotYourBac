@@ -36,9 +36,9 @@ public class UserController {
     }
 
 
-//TODO: If separate login page is needed then uncomment route.
-//    @GetMapping("/login")
-//    public String loginAsAUser(){
-//        return "login";
-//    }
+
+    @GetMapping("/login")
+    public String loginAsAUser(){
+        return "login";
+    }
 }
