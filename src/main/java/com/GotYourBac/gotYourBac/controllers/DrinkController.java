@@ -46,4 +46,9 @@ public class DrinkController {
         drinkRepository.save(drink);
         return new RedirectView("/addDrinks");
     }
+
+    @GetMapping("/balmer")
+    public String getBalmerInfo(){
+        return "balmerPeak";
+    }
 }

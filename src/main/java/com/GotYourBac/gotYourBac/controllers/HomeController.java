@@ -18,4 +18,14 @@ public class HomeController {
         }
         return "home";
     }
+
+    @GetMapping("/about")
+    public String getAboutPage(Principal p, Model m){
+        if(p != null){
+            m.addAttribute("username", p.getName());
+        } else {
+            m.addAttribute("username", "User");
+        }
+        return "aboutus";
+    }
 }
