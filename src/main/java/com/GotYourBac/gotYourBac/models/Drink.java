@@ -28,9 +28,6 @@ public class Drink {
         this.drinkSize = drinkSize;
     }
 
-    public ApplicationUser getAppUser() {
-        return appUser;
-    }
 
     public String getDrinkName() {
         return drinkName;

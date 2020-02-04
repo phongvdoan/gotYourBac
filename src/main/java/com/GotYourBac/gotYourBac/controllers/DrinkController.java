@@ -30,30 +30,20 @@ public class DrinkController {
     }
 
 
-    @PostMapping("/addDrinks")
+    @PostMapping("/addDrink")
     public RedirectView addDrinks(String drinkName, int numberOfDrinks, float drinkSize) throws IOException {
-
         Gson gson = new Gson();
-
         URL url = new URL("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=" + drinkName);
-        System.out.println("url = " + url);
         HttpURLConnection apiConnection = (HttpURLConnection) url.openConnection();
         apiConnection.setRequestMethod("GET");
-
         BufferedReader input = new BufferedReader(new InputStreamReader(apiConnection.getInputStream()));
-
         String drinkJSON = input.readLine();
-
         JsonObject incomingObject = gson.fromJson(drinkJSON, JsonObject.class);
-
         JsonArray incomingArr = incomingObject.get("ingredients").getAsJsonArray();
-
+        System.out.println(incomingArr);
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
-
         Drink drink = new Drink(newDrink.getDrinkName(), newDrink.getAlcoholContent(), numberOfDrinks, drinkSize);
-
         drinkRepository.save(drink);
-
         return new RedirectView("/addDrinks");
     }
 }
