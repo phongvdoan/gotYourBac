@@ -40,17 +40,19 @@ public class DrinkController {
         ApplicationUser drunkUser = applicationUserRepository.findByUsername(p.getName());
         List<Drink> listOfDrinks = drunkUser.drinkList;
 
+        drunkUser.getBACChart(drunkUser.calculateBAC());
         m.addAttribute("listOfDrinks", listOfDrinks);
         m.addAttribute("principal", p.getName());
+        m.addAttribute("BAC",drunkUser.calculateBAC());
+        m.addAttribute("chartBAC", drunkUser.getBACChart(drunkUser.calculateBAC()));
 
-        drunkUser.calculateBAC();
         System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
 
         return "drinks";
     }
 
     @PostMapping("/addDrinks")
-    public RedirectView addADrink(Principal p,Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
+    public RedirectView addADrink(Principal p,Model m, String drinkName, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
 
@@ -67,7 +69,6 @@ public class DrinkController {
 
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
         newDrink.setAppUser(loggedInUser);
-        newDrink.numOfDrinks = numberOfDrinks;
         newDrink.drinkSize = drinkSize;
         drinkRepository.save(newDrink);
         return new RedirectView("/drinks");
