@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -23,6 +23,12 @@
                 <li>Height:     [[${loggedInUser.height}]]</li>
                 <li>Weight:     [[${loggedInUser.weight}]]</li>
                 <li><a href="/profile/update"><Button>Update Profile</Button></a></li>
+                <li>
+                    <form th:action="@{'/profile/delete'}" th:method="delete">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </main>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <form th:action="@{'/update'}" th:method="put">
+        <form th:action="@{'/profile/update'}" th:method="put">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="username" th:value="${loggedInUser.getUsername()}">
             First Name: <input type="text" name="firstName" th:value="${loggedInUser.firstName}">
