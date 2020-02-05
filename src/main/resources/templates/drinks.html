@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Drinks</title>
@@ -55,7 +55,7 @@
         <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
         <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
         <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
-        <td><img src="/images/deleteIcon.png" alt="delete"></td>
+        <td><img src="/static/images/deleteIcon.png" alt="delete"></td>
     </tr>
     </tbody>
 </table>
