@@ -40,6 +40,9 @@ public class Drink {
         return drinkSize;
     }
 
+    public long getId() {
+        return id;
+    }
 
     public void setAppUser(ApplicationUser appUser) {
         this.appUser = appUser;

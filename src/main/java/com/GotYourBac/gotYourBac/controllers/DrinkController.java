@@ -10,6 +10,7 @@ import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -70,10 +71,15 @@ public class DrinkController {
         newDrink.setAppUser(loggedInUser);
         newDrink.drinkSize = drinkSize;
         drinkRepository.save(newDrink);
-
-
         return new RedirectView("/drinks");
     };
+
+    @DeleteMapping("/drinks/delete")
+    public RedirectView deleteOneDrink(Principal p, long id){
+        drinkRepository.deleteById(id);
+        return new RedirectView("/drinks");
+    }
+
 
     @GetMapping("/balmer")
     public String getBalmerInfo(){
