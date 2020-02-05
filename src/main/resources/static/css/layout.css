@@ -22,11 +22,30 @@ footer nav  ul li {
     height: 200px;
 }
 
+.formDiv {
+    text-align: center;
+    width: 35%;
+    height: 30%;
+    font-size: 1.5em;
+}
+
+form {
+    text-align: center;
+}
+
+.formElement{
+    display: block;
+}
+
+label {
+    width: 200px;
+}
+
 footer {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 80%;
     color: white;
     text-align: right;
 }
@@ -40,4 +59,3 @@ footer nav  ul li {
     padding: 2%;
     font-size: 1.5em;
 }
-

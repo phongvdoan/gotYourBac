@@ -108,9 +108,13 @@ p {
 }
 
 .fixedContent{
-font-family: 'Lora', serif;
-font-size: 18px;
-list-style-type: none;
-  background: #eee;
+  position: fixed;
+  bottom: 25%;
+  right: 30%;
+  width: 300px;
+  border: 3px solid #73AD21;
+  margin-left: 20%;
 }
+
+
 
