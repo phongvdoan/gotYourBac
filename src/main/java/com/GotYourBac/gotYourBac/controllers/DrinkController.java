@@ -10,8 +10,10 @@ import com.google.gson.JsonObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.BufferedReader;
@@ -39,17 +41,17 @@ public class DrinkController {
         ApplicationUser drunkUser = applicationUserRepository.findByUsername(p.getName());
         List<Drink> listOfDrinks = drunkUser.drinkList;
 
+        drunkUser.getBACChart(drunkUser.calculateBAC());
         m.addAttribute("listOfDrinks", listOfDrinks);
         m.addAttribute("principal", p.getName());
-
-        drunkUser.calculateBAC();
-        System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
+        m.addAttribute("BAC",drunkUser.calculateBAC());
+        m.addAttribute("chartBAC", drunkUser.getBACChart(drunkUser.calculateBAC()));
 
         return "drinks";
     }
 
     @PostMapping("/addDrinks")
-    public RedirectView addADrink(Principal p,Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
+    public RedirectView addADrink(Principal p,Model m, String drinkName, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
 
@@ -66,15 +68,28 @@ public class DrinkController {
 
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
         newDrink.setAppUser(loggedInUser);
-        newDrink.numOfDrinks = numberOfDrinks;
         newDrink.drinkSize = drinkSize;
         drinkRepository.save(newDrink);
-
-
         return new RedirectView("/drinks");
-
-
     };
+
+    @DeleteMapping("/drinks/delete")
+    public RedirectView deleteOneDrink(Principal p, long id){
+        drinkRepository.deleteById(id);
+        return new RedirectView("/drinks");
+    }
+
+    @PutMapping("/drinks/update")
+    public RedirectView updateDrink(long id, float strABV, float drinkSize) {
+        Drink currentDrink = drinkRepository.findById(id).get();
+        currentDrink.setStrABV(strABV);
+        currentDrink.setDrinkSize(drinkSize);
+        drinkRepository.save(currentDrink);
+        return new RedirectView("/drinks");
+    }
+
+
+
 
     @GetMapping("/balmer")
     public String getBalmerInfo(){

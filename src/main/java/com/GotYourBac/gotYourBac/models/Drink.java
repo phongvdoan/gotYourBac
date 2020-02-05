@@ -16,16 +16,14 @@ public class Drink {
 
     public String strIngredient;
     public float strABV;
-    public int numOfDrinks;
     public float drinkSize;
 
     public Drink() {
     }
 
-    public Drink(String strIngredient, float strABV, int numOfDrinks, float drinkSize) {
+    public Drink(String strIngredient, float strABV, float drinkSize) {
         this.strIngredient=strIngredient;
         this.strABV = strABV;
-        this.numOfDrinks = numOfDrinks;
         this.drinkSize = drinkSize;
     }
 
@@ -37,14 +35,22 @@ public class Drink {
         return strABV;
     }
 
-    public int getNumOfDrinks() {
-        return numOfDrinks;
-    }
 
     public float getDrinkSize() {
         return drinkSize;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setStrABV(float strABV) {
+        this.strABV = strABV;
+    }
+
+    public void setDrinkSize(float drinkSize) {
+        this.drinkSize = drinkSize;
+    }
 
     public void setAppUser(ApplicationUser appUser) {
         this.appUser = appUser;
