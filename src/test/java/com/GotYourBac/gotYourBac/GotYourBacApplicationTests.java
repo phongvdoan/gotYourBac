@@ -53,12 +53,12 @@ class GotYourBacApplicationTests {
 				.andExpect(content().string(containsString("<h2>Login here:</h2>")));
 	}
 
-	@Test
-	public void shouldHaveProfilePage() throws Exception {
-		this.mockMvc.perform(get("/profile"))
-				.andDo(print())
-				.andExpect(status().isOk())
-				.andExpect(content().string(containsString("<h2>Users Profile</h2>")));
-	}
+//	@Test
+//	public void shouldHaveProfilePage() throws Exception {
+//		this.mockMvc.perform(get("/profile"))
+//				.andDo(print())
+//				.andExpect(status().isOk())
+//				.andExpect(content().string(containsString("<h2>Users Profile</h2>")));
+//	}
 
 }

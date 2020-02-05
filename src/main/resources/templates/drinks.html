@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Add Drinks</title>
 </head>
+
 <body>
     <header th:insert="fragments/header.html :: header"></header>
     <main>
@@ -41,7 +43,25 @@
             <input type="submit" value="Add">
 
         </form>
+
+        <table>
+
+            <th:block th:each="drink : ${listOfDrinks}">
+                <tr>
+                    <td th:text="${drink?.strIngredient}"></td>
+                    <td th:text="${drink?.strABV}"></td>
+                    <td th:text="${drink?.numOfDrinks}"></td>
+                    <td th:text="${drink?.drinkSize}"></td>
+                    <td><a href=""></a><img src="/images/deleteIcon.png" alt=""></td>
+                </tr>
+            </th:block>
+
+        </table>
     </main>
     <footer th:insert="fragments/footer.html :: footer"></footer>
+
+
+
 </body>
+
 </html>
