@@ -108,6 +108,12 @@ p {
 }
 
 .fixedContent{
+/*   position: fixed;
+  bottom: 25%;
+  right: 30%;
+  width: 300px;
+  border: 3px solid #73AD21;
+  margin-left: 20%; */
 font-family: 'Lora', serif;
 font-size: 20px;
 list-style-type: none;
@@ -146,4 +152,6 @@ display: inline-block;
 .fixedContent li {
 font-size: 30px;
 }
+
+
 
