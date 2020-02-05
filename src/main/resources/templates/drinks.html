@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Drinks</title>
+</head>
+<body>
+<h1>Add Drinks</h1>
+<form action="/addDrinks" method="POST">
+    <h3>Add Drinks</h3>
+    <label>Please select a drink: </label>
+
+    <select name="drinkName">
+        <option value="vodka">Vodka</option>
+        <option value="beer">Beer</option>
+        <option value="gin">Gin</option>
+        <option value="rum">Rum</option>
+        <option value="whiskey">Whiskey</option>
+        <option value="wine">Wine</option>
+    </select>
+    <br>
+    <br>
+    <label>Please select an amount of drink: </label>
+    <input type="number" name="numberOfDrinks">
+    <br>
+    <br>
+
+    <label>Select the size of drink:</label>
+    <select name="drinkSize">
+        <option value="12">12 oz</option>
+        <option value="5">5 oz</option>
+        <option value="1.5">1.5 oz</option>
+
+    </select>
+    <br>
+    <br>
+
+    <input type="submit" value="Add">
+
+</form>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Drink</th>
+        <th>ABV</th>
+        <th>Number of Drink</th>
+        <th>Size of Drink</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod: ${allProducts}">
+        <td th:text="${prod.name}">Oranges</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td><img src="/images/deleteIcon.png" alt="delete"></td>
+    </tr>
+    </tbody>
+</table>
+<!--<div th:each="drink : ${drinksList}">-->
+<!--    <p>[[${drink.strIngredient}]]</p>-->
+<!--    <p>[[${drink.strABV}]]</p>-->
+<!--    <p>[[${drink.numOfDrinks}]]</p>-->
+<!--    <p>[[${drink.drinkSize}]]</p>-->
+<!--</div>-->
+
+
+</body>
+</html>
