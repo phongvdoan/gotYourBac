@@ -44,6 +44,14 @@ public class Drink {
         return id;
     }
 
+    public void setStrABV(float strABV) {
+        this.strABV = strABV;
+    }
+
+    public void setDrinkSize(float drinkSize) {
+        this.drinkSize = drinkSize;
+    }
+
     public void setAppUser(ApplicationUser appUser) {
         this.appUser = appUser;
     }
