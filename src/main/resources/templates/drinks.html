@@ -41,30 +41,18 @@
 
 
 <table>
-    <thead>
-    <tr>
-        <th>Drink</th>
-        <th>ABV</th>
-        <th>Number of Drink</th>
-        <th>Size of Drink</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="prod: ${allProducts}">
-        <td th:text="${prod.name}">Oranges</td>
-        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
-        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
-        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
-        <td><img src="/static/images/deleteIcon.png" alt="delete"></td>
-    </tr>
-    </tbody>
+
+    <th:block th:each="drink : ${listOfDrinks}">
+        <tr>
+            <td th:text="${drink?.strIngredient}"></td>
+            <td th:text="${drink?.strABV}"></td>
+            <td th:text="${drink?.numOfDrinks}"></td>
+            <td th:text="${drink?.drinkSize}"></td>
+            <td><a href=""></a><img src="/images/deleteIcon.png" alt=""></td>
+        </tr>
+    </th:block>
+
 </table>
-<!--<div th:each="drink : ${drinksList}">-->
-<!--    <p>[[${drink.strIngredient}]]</p>-->
-<!--    <p>[[${drink.strABV}]]</p>-->
-<!--    <p>[[${drink.numOfDrinks}]]</p>-->
-<!--    <p>[[${drink.drinkSize}]]</p>-->
-<!--</div>-->
 
 
 </body>
