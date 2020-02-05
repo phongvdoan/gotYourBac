@@ -127,4 +127,31 @@ public class ApplicationUser implements UserDetails {
     public void setProfilepic(String profilepic) {
         this.profilepic = profilepic;
     }
+
+    public float calculateBAC() {
+        float BAC;
+        int numOfDrinks = 0;
+        float genderConstant;
+
+
+        for(Drink drank : this.drinkList){
+            numOfDrinks += drank.numOfDrinks;
+        }
+
+        if(this.gender.equals("M")) {
+            genderConstant = 0.73f;
+
+        } else {
+            genderConstant = 0.66f;
+        }
+
+        BAC = numOfDrinks / 0.3243f / this.weight / genderConstant;
+        //get the drink list by looping over the users drink
+        return BAC;
+    }
+//
+//    BAC =
+//            (numDrinks / 0.3243 / weight / genderConstant)
+//    MALE_CONST = 0.73;
+//    FEMALE_CONST = 0.66;
 }
