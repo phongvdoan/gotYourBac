@@ -39,9 +39,11 @@ public class DrinkController {
         ApplicationUser drunkUser = applicationUserRepository.findByUsername(p.getName());
         List<Drink> listOfDrinks = drunkUser.drinkList;
 
+        drunkUser.getBACChart(drunkUser.calculateBAC());
         m.addAttribute("listOfDrinks", listOfDrinks);
         m.addAttribute("principal", p.getName());
         m.addAttribute("BAC",drunkUser.calculateBAC());
+        m.addAttribute("chartBAC", drunkUser.getBACChart(drunkUser.calculateBAC()));
 
         System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
 
@@ -71,8 +73,6 @@ public class DrinkController {
 
 
         return new RedirectView("/drinks");
-
-
     };
 
     @GetMapping("/balmer")

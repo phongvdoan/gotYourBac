@@ -128,33 +128,58 @@ public class ApplicationUser implements UserDetails {
         this.profilepic = profilepic;
     }
 
+
+//    totalAlcoholContent {
+//        drinkSizeInGrams = sizeofDrink * 28.3494;
+//        Return alcohollContent * drinkSizeInGrams;
+
+    public float getTotalAlcoholContent(float drinkSize, float alcoholContent) {
+        float drinkSizeInGrams;
+        drinkSizeInGrams = drinkSize * 28.3494f;
+        return (alcoholContent /100) * drinkSizeInGrams;
+    }
     public float calculateBAC() {
         float BAC;
+
         int numOfDrinks = 0;
         float genderConstant;
         float alcoholContent = 0.0f;
 
         for(Drink drink : this.drinkList){
-           alcoholContent += (drink.getStrABV() / 100) * drink.drinkSize;
-            numOfDrinks++;
+            alcoholContent += getTotalAlcoholContent(drink.drinkSize, drink.getStrABV());
+
         }
 
-        if(this.gender.equals("M")) {
+        if(this.gender.equals("male")) {
             genderConstant = 0.73f;
 
-        } else if(this.gender.equals("F")) {
+        } else if(this.gender.equals("female")) {
             genderConstant = 0.66f;
         } else {
             genderConstant = 0.73f;
         }
-
-        BAC = numOfDrinks / alcoholContent / this.weight / genderConstant;
+        float weightInGrams = this.weight +453.592f;
+        float temp = weightInGrams * genderConstant;
+        BAC = (alcoholContent / temp);
         //get the drink list by looping over the users drink
         return BAC;
     }
-//
-//    BAC =
-//            (numDrinks / 0.3243 / weight / genderConstant)
-//    MALE_CONST = 0.73;
-//    FEMALE_CONST = 0.66;s
+
+    public String getBACChart(float BAC) {
+        String bacEffects;
+
+        if(BAC < .05) {
+            bacEffects = "Effects: Talkative , more relaxed, and more confident.";
+        } else if(BAC > .05 && BAC < .08) {
+            bacEffects = "Effects: Impaired judgement, and reduce inhibitions.";
+        } else if(BAC > .08 && BAC < .15 ) {
+            bacEffects = "Effects: Slurred speech, impaired balance and coordination, unstable emotions and possibly nausea, and vomiting.";
+        } else if(BAC > .15 && BAC < .30) {
+            bacEffects = "Effects: Inadequate breathing, unable to walk without assistance, loss of bladder control and possibly loss of conciousness.";
+        } else {
+            bacEffects = "Effects: Possibly see you in the afterlife or the ER.";
+        }
+        return bacEffects;
+    }
+
 }
