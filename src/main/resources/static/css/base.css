@@ -28,7 +28,6 @@ label[data-function*='swipe'] {
   display: block;
   width: 42px;
   height: 42px;
-
   font: 42px fontawesome;
   text-align: center;
   color: #333;
@@ -55,7 +54,6 @@ input[data-function*='swipe']:checked ~ label:nth-child(2){
 input[data-function*='swipe']:checked ~ label:nth-child(3){
   display: none;
 }
-
 input[data-function*='swipe']:checked ~ .headings {
   transform: translate3d(280px, 0px, 0px);
 }
@@ -108,3 +106,11 @@ p {
   transform: translate3d(0, 0, 0);
   transition: transform .3s;
 }
+
+.fixedContent{
+font-family: 'Lora', serif;
+font-size: 18px;
+list-style-type: none;
+  background: #eee;
+}
+
