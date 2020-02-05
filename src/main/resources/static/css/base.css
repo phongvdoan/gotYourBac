@@ -28,7 +28,7 @@ label[data-function*='swipe'] {
   display: block;
   width: 42px;
   height: 42px;
-  font: 42px serif;
+  font: 42px fontawesome;
   text-align: center;
   color: #333;
   cursor: pointer;
