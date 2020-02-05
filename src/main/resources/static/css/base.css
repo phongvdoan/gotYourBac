@@ -28,7 +28,8 @@ label[data-function*='swipe'] {
   display: block;
   width: 42px;
   height: 42px;
-  font: 42px serif;
+
+  font: 42px fontawesome;
   text-align: center;
   color: #333;
   cursor: pointer;
@@ -97,4 +98,13 @@ h1, p {
 }
 p {
   font-size: 30px;
+}
+
+.headings {
+  flex: 1;
+  padding: 80px 30px;
+  background: #eee;
+  box-shadow: 0 0 5px black;
+  transform: translate3d(0, 0, 0);
+  transition: transform .3s;
 }
