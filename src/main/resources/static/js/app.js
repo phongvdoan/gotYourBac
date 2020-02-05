@@ -13,7 +13,7 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/gs-guide-websocket');
+    var socket = new SockJS('/hhchat');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
@@ -35,11 +35,11 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/rsvp", {}, JSON.stringify({'mame': $("#name").val()}))
+    stompClient.send("/topic/happyhour", {}, JSON.stringify({'name': $("#name").val()}))
 }
 
 function showHappyHour(message) {
-    $("#happyhour").append("<tr><td>" + message+ "</td></tr>")
+    $("#happyhour").append("<tr><td>" + message + "</td></tr>")
 }
 
 $(function () {
