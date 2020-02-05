@@ -132,20 +132,23 @@ public class ApplicationUser implements UserDetails {
         float BAC;
         int numOfDrinks = 0;
         float genderConstant;
+        float alcoholContent = 0.0f;
 
-
-        for(Drink drank : this.drinkList){
-            numOfDrinks += drank.numOfDrinks;
+        for(Drink drink : this.drinkList){
+           alcoholContent += (drink.getStrABV() / 100) * drink.drinkSize;
+            numOfDrinks++;
         }
 
         if(this.gender.equals("M")) {
             genderConstant = 0.73f;
 
-        } else {
+        } else if(this.gender.equals("F")) {
             genderConstant = 0.66f;
+        } else {
+            genderConstant = 0.73f;
         }
 
-        BAC = numOfDrinks / 0.3243f / this.weight / genderConstant;
+        BAC = numOfDrinks / alcoholContent / this.weight / genderConstant;
         //get the drink list by looping over the users drink
         return BAC;
     }
@@ -153,5 +156,5 @@ public class ApplicationUser implements UserDetails {
 //    BAC =
 //            (numDrinks / 0.3243 / weight / genderConstant)
 //    MALE_CONST = 0.73;
-//    FEMALE_CONST = 0.66;
+//    FEMALE_CONST = 0.66;s
 }

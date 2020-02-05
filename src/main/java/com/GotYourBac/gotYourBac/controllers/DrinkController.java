@@ -41,15 +41,15 @@ public class DrinkController {
 
         m.addAttribute("listOfDrinks", listOfDrinks);
         m.addAttribute("principal", p.getName());
+        m.addAttribute("BAC",drunkUser.calculateBAC());
 
-        drunkUser.calculateBAC();
         System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
 
         return "drinks";
     }
 
     @PostMapping("/addDrinks")
-    public RedirectView addADrink(Principal p,Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
+    public RedirectView addADrink(Principal p,Model m, String drinkName, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
 
@@ -66,7 +66,6 @@ public class DrinkController {
 
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
         newDrink.setAppUser(loggedInUser);
-        newDrink.numOfDrinks = numberOfDrinks;
         newDrink.drinkSize = drinkSize;
         drinkRepository.save(newDrink);
 
