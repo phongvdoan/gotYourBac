@@ -108,3 +108,10 @@ p {
   transform: translate3d(0, 0, 0);
   transition: transform .3s;
 }
+
+.fixedContent{
+font-family: 'Lora', serif;
+font-size: 18px;
+list-style-type: none;
+  background: #eee;
+}
