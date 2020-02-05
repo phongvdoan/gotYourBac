@@ -45,13 +45,12 @@ public class DrinkController {
         m.addAttribute("principal", p.getName());
 
         drunkUser.calculateBAC();
-        System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
 
         return "drinks";
     }
 
     @PostMapping("/addDrinks")
-    public RedirectView addADrink(Principal p,Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
+    public RedirectView addADrink(Principal p, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
 
