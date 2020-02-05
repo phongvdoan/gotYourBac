@@ -13,17 +13,17 @@
         <h2>Register new user</h2>
         <h3> placeholder text</h3>
         <form action="/registration" method="POST">
-            Username: <input type="text" name="username">
-            Password: <input type="password" name="password">
-            First Name: <input type="text" name="firstName">
-            Last Name: <input type="text" name="lastName">
-            Gender:  <select name="gender">
+            Username: <input type="text" name="username" required>
+            Password: <input type="password" name="password" required>
+            First Name: <input type="text" name="firstName" required>
+            Last Name: <input type="text" name="lastName" required>
+            Gender:  <select name="gender" required>
             <option value="non-binary">Non-Binary</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
              </select>
-            Height (inches): <input type="number" name="height">
-            Weight (pounds): <input type="number" name="weight">
+            Height (inches): <input type="number" name="height" required>
+            Weight (pounds): <input type="number" name="weight" required>
             <button type="submit">Submit</button>
         </form>
     </main>
