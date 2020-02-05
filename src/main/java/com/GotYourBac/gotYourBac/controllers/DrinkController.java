@@ -45,7 +45,7 @@ public class DrinkController {
         JsonArray incomingArr = incomingObject.get("ingredients").getAsJsonArray();
         System.out.println(incomingArr);
         Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
-        Drink drink = new Drink(newDrink.getDrinkName(), newDrink.getAlcoholContent(), numberOfDrinks, drinkSize);
+        Drink drink = new Drink(newDrink.strIngredient, newDrink.strABV, numberOfDrinks, drinkSize);
         drinkRepository.save(drink);
         m.addAttribute("drinksList", drinksList);
 
