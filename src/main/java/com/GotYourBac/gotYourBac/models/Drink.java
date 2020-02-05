@@ -44,4 +44,9 @@ public class Drink {
     public float getDrinkSize() {
         return drinkSize;
     }
+
+
+    public void setAppUser(ApplicationUser appUser) {
+        this.appUser = appUser;
+    }
 }

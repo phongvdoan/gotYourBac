@@ -15,7 +15,7 @@ public class ApplicationUser implements UserDetails {
     long id;
 
     @OneToMany(mappedBy = "appUser")
-    List<Drink> drinkList;
+    public List<Drink> drinkList;
 
     String username;
     String password;
