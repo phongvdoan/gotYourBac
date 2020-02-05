@@ -40,5 +40,32 @@
 </form>
 
 
+<table>
+    <thead>
+    <tr>
+        <th>Drink</th>
+        <th>ABV</th>
+        <th>Number of Drink</th>
+        <th>Size of Drink</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod: ${allProducts}">
+        <td th:text="${prod.name}">Oranges</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>
+        <td><img src="/images/deleteIcon.png" alt="delete"></td>
+    </tr>
+    </tbody>
+</table>
+<!--<div th:each="drink : ${drinksList}">-->
+<!--    <p>[[${drink.strIngredient}]]</p>-->
+<!--    <p>[[${drink.strABV}]]</p>-->
+<!--    <p>[[${drink.numOfDrinks}]]</p>-->
+<!--    <p>[[${drink.drinkSize}]]</p>-->
+<!--</div>-->
+
+
 </body>
 </html>
