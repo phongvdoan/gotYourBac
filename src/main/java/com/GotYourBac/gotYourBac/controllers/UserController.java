@@ -79,10 +79,10 @@ public class UserController {
         applicationUserRepository.delete(currentUser);
         return new RedirectView("/");
     }
-git g
+
     @GetMapping("/login")
     public String loginAsAUser(){
         return "login";
     }
 
-}
+};
