@@ -16,16 +16,14 @@ public class Drink {
 
     public String strIngredient;
     public float strABV;
-    public int numOfDrinks;
     public float drinkSize;
 
     public Drink() {
     }
 
-    public Drink(String strIngredient, float strABV, int numOfDrinks, float drinkSize) {
+    public Drink(String strIngredient, float strABV, float drinkSize) {
         this.strIngredient=strIngredient;
         this.strABV = strABV;
-        this.numOfDrinks = numOfDrinks;
         this.drinkSize = drinkSize;
     }
 
@@ -37,9 +35,6 @@ public class Drink {
         return strABV;
     }
 
-    public int getNumOfDrinks() {
-        return numOfDrinks;
-    }
 
     public float getDrinkSize() {
         return drinkSize;
