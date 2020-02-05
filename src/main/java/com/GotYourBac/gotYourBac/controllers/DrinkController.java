@@ -1,5 +1,7 @@
 package com.GotYourBac.gotYourBac.controllers;
 
+import com.GotYourBac.gotYourBac.models.ApplicationUser;
+import com.GotYourBac.gotYourBac.models.ApplicationUserRepository;
 import com.GotYourBac.gotYourBac.models.Drink;
 import com.GotYourBac.gotYourBac.models.DrinkRepository;
 import com.google.gson.Gson;
@@ -27,30 +29,47 @@ public class DrinkController {
     @Autowired
     DrinkRepository drinkRepository;
 
+    @Autowired
+    ApplicationUserRepository applicationUserRepository;
+
+
     @GetMapping("/drinks")
-    public String goHome() {
+    public String goHome(Principal p, Model m) {
+
+        ApplicationUser drunkUser = applicationUserRepository.findByUsername(p.getName());
+        List<Drink> listOfDrinks = drunkUser.drinkList;
+
+        m.addAttribute("listOfDrinks", listOfDrinks);
+        m.addAttribute("principal", p.getName());
+
         return "drinks";
     }
+
     @PostMapping("/addDrinks")
-    public RedirectView addDrinks(Principal p, Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException {
+    public RedirectView addADrink(Principal p,Model m, String drinkName, int numberOfDrinks, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
-        List<Drink> drinksList = drinkRepository.findAll();
+
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+
         URL url = new URL("https://www.thecocktaildb.com/api/json/v2/9973533/search.php?i=" + drinkName);
+
         HttpURLConnection apiConnection = (HttpURLConnection) url.openConnection();
         apiConnection.setRequestMethod("GET");
         BufferedReader input = new BufferedReader(new InputStreamReader(apiConnection.getInputStream()));
         String drinkJSON = input.readLine();
         JsonObject incomingObject = gson.fromJson(drinkJSON, JsonObject.class);
         JsonArray incomingArr = incomingObject.get("ingredients").getAsJsonArray();
-        System.out.println(incomingArr);
-        Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
-        Drink drink = new Drink(newDrink.strIngredient, newDrink.strABV, numberOfDrinks, drinkSize);
-        drinkRepository.save(drink);
-        m.addAttribute("drinksList", drinksList);
 
-        return new RedirectView("/addDrinks");
-    }
+        Drink newDrink = gson.fromJson(incomingArr.get(0), Drink.class);
+        newDrink.setAppUser(loggedInUser);
+        newDrink.numOfDrinks = numberOfDrinks;
+        newDrink.drinkSize = drinkSize;
+        drinkRepository.save(newDrink);
+        System.out.println("drink = " + newDrink);
+
+        return new RedirectView("/drinks");
+    };
 
     @GetMapping("/balmer")
     public String getBalmerInfo(){
