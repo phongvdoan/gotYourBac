@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Add Drinks</title>
 </head>
+
 <body>
-<h1>Add Drinks</h1>
-<form action="/addDrinks" method="POST">
-    <h3>Add Drinks</h3>
-    <label>Please select a drink: </label>
+    <header th:insert="fragments/header.html :: header"></header>
+    <main>
+        <nav th:insert="fragments/navigation.html :: navigation"></nav>
+        <h2>Add Drinks</h2>
+        <form action="/addDrinks" method="POST">
+            <h3>Add Drinks</h3>
+            <label>Please select a drink: </label>
 
-    <select name="drinkName">
-        <option value="vodka">Vodka</option>
-        <option value="beer">Beer</option>
-        <option value="gin">Gin</option>
-        <option value="rum">Rum</option>
-        <option value="whiskey">Whiskey</option>
-        <option value="wine">Wine</option>
-    </select>
-    <br>
-    <br>
-    <label>Please select an amount of drink: </label>
-    <input type="number" name="numberOfDrinks">
-    <br>
-    <br>
+            <select name="drinkName">
+                <option value="vodka">Vodka</option>
+                <option value="beer">Beer</option>
+                <option value="gin">Gin</option>
+                <option value="rum">Rum</option>
+                <option value="whiskey">Whiskey</option>
+                <option value="wine">Wine</option>
+            </select>
+            <br>
+            <br>
+            <label>Please select an amount of drink: </label>
+            <input type="number" name="numberOfDrinks">
+            <br>
+            <br>
 
-    <label>Select the size of drink:</label>
-    <select name="drinkSize">
-        <option value="12">12 oz</option>
-        <option value="5">5 oz</option>
-        <option value="1.5">1.5 oz</option>
+            <label>Select the size of drink:</label>
+            <select name="drinkSize">
+                <option value="12">12 oz</option>
+                <option value="5">5 oz</option>
+                <option value="1.5">1.5 oz</option>
 
-    </select>
-    <br>
-    <br>
+            </select>
+            <br>
+            <br>
 
-    <input type="submit" value="Add">
+            <input type="submit" value="Add">
 
-</form>
+        </form>
 
+        <table>
 
-<table>
+            <th:block th:each="drink : ${listOfDrinks}">
+                <tr>
+                    <td th:text="${drink?.strIngredient}"></td>
+                    <td th:text="${drink?.strABV}"></td>
+                    <td th:text="${drink?.numOfDrinks}"></td>
+                    <td th:text="${drink?.drinkSize}"></td>
+                    <td><a href=""></a><img src="/images/deleteIcon.png" alt=""></td>
+                </tr>
+            </th:block>
 
-    <th:block th:each="drink : ${listOfDrinks}">
-        <tr>
-            <td th:text="${drink?.strIngredient}"></td>
-            <td th:text="${drink?.strABV}"></td>
-            <td th:text="${drink?.numOfDrinks}"></td>
-            <td th:text="${drink?.drinkSize}"></td>
-            <td><a href=""></a><img src="/images/deleteIcon.png" alt=""></td>
-        </tr>
-    </th:block>
+        </table>
+    </main>
+    <footer th:insert="fragments/footer.html :: footer"></footer>
 
-</table>
 
 
 </body>
+
 </html>
