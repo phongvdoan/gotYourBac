@@ -5,14 +5,19 @@
     <title>Login Page</title>
 </head>
 <body>
-<div th:if="${param.error}">
-    <p>Username and/or password was incorrect. Please try again.</p>
-</div>
-<h2>Login here:</h2>
-<form action="/login" method="post">
-    Username: <input type="text" name="username">
-    Password: <input type="password" name="password">
-    <button type="submit">Login</button>
-</form>
+    <header th:insert="fragments/header.html :: header"></header>
+    <main>
+        <nav th:insert="fragments/navigation.html :: navigation"></nav>
+        <div th:if="${param.error}">
+            <p>Username and/or password was incorrect. Please try again.</p>
+        </div>
+        <h2>Login here:</h2>
+        <form action="/login" method="post">
+            Username: <input type="text" name="username">
+            Password: <input type="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    <footer th:insert="fragments/footer.html :: footer"></footer>
 </body>
 </html>
