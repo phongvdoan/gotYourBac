@@ -1,6 +1,7 @@
 package com.GotYourBac.gotYourBac.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Drink {
@@ -9,6 +10,9 @@ public class Drink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+
+    @ManyToOne
+    ApplicationUser appUser;
 
     public String strIngredient;
     public float strABV;
@@ -25,13 +29,12 @@ public class Drink {
         this.drinkSize = drinkSize;
     }
 
-
-    public String getDrinkName() {
-        return drinkName;
+    public String getStrIngredient() {
+        return strIngredient;
     }
 
-    public float getAlcoholContent() {
-        return alcoholContent;
+    public float getStrABV() {
+        return strABV;
     }
 
     public int getNumOfDrinks() {
