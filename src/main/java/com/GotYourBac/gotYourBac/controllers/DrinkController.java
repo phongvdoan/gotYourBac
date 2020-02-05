@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.BufferedReader;
@@ -76,6 +77,15 @@ public class DrinkController {
     @DeleteMapping("/drinks/delete")
     public RedirectView deleteOneDrink(Principal p, long id){
         drinkRepository.deleteById(id);
+        return new RedirectView("/drinks");
+    }
+
+    @PutMapping("/drinks/update")
+    public RedirectView updateDrink(long id, float strABV, float drinkSize) {
+        Drink currentDrink = drinkRepository.findById(id).get();
+        currentDrink.setStrABV(strABV);
+        currentDrink.setDrinkSize(drinkSize);
+        drinkRepository.save(currentDrink);
         return new RedirectView("/drinks");
     }
 
