@@ -15,7 +15,7 @@
             <h3>Add Drinks</h3>
             <label>Please select a drink: </label>
 
-            <select name="drinkName">
+            <select name="drinkName" required>
                 <option value="vodka">Vodka</option>
                 <option value="beer">Beer</option>
                 <option value="gin">Gin</option>
@@ -49,10 +49,10 @@
                 <tr>
                     <td th:text="${drink?.strIngredient}"></td>
                     <td th:text="${drink?.strABV}"></td>
-                    <input type="number" name="strABV" th:value="${drink?.strABV}">
+                    <input type="number" name="strABV" th:value="${drink?.strABV}" required>
                     <td th:text="${drink?.numOfDrinks}"></td>
                     <td th:text="${drink?.drinkSize}"></td>
-                    <select name="drinkSize" th:value="${drink?.drinkSize}">
+                    <select name="drinkSize" th:value="${drink?.drinkSize}" required>
                         <option value="12">12 oz</option>
                         <option value="5">5 oz</option>
                         <option value="1.5">1.5 oz</option>
