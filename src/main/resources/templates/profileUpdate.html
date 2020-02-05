@@ -9,7 +9,7 @@
 </head>
 <body>
     <main>
-        <form th:action="@{'/update'}" th:method="put">
+        <form th:action="@{'/profile/update'}" th:method="put">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="username" th:value="${loggedInUser.getUsername()}">
             First Name: <input type="text" name="firstName" th:value="${loggedInUser.firstName}">

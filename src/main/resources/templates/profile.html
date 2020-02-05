@@ -23,6 +23,12 @@
                 <li>Height:     [[${loggedInUser.height}]]</li>
                 <li>Weight:     [[${loggedInUser.weight}]]</li>
                 <li><a href="/profile/update"><Button>Update Profile</Button></a></li>
+                <li>
+                    <form th:action="@{'/profile/delete'}" th:method="delete">
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </main>
