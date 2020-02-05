@@ -15,7 +15,7 @@ public class ApplicationUser implements UserDetails {
     long id;
 
     @OneToMany(mappedBy = "appUser")
-    List<Drink> drinkList;
+    public List<Drink> drinkList;
 
     String username;
     String password;
@@ -25,7 +25,6 @@ public class ApplicationUser implements UserDetails {
     double height;
     float weight;
     String profilepic;
-
 
     public ApplicationUser() {
     }
@@ -99,4 +98,60 @@ public class ApplicationUser implements UserDetails {
     public String getProfilepic() {
         return profilepic;
     }
+
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void setProfilepic(String profilepic) {
+        this.profilepic = profilepic;
+    }
+
+    public float calculateBAC() {
+        float BAC;
+        int numOfDrinks = 0;
+        float genderConstant;
+
+
+        for(Drink drank : this.drinkList){
+            numOfDrinks += drank.numOfDrinks;
+        }
+
+        if(this.gender.equals("M")) {
+            genderConstant = 0.73f;
+
+        } else {
+            genderConstant = 0.66f;
+        }
+
+        BAC = numOfDrinks / 0.3243f / this.weight / genderConstant;
+        //get the drink list by looping over the users drink
+        return BAC;
+    }
+//
+//    BAC =
+//            (numDrinks / 0.3243 / weight / genderConstant)
+//    MALE_CONST = 0.73;
+//    FEMALE_CONST = 0.66;
 }

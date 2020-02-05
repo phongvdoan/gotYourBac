@@ -16,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 
         @GetMapping("/error")
         public String handleError(Model model) {
-
-
             return "error";
         }
 

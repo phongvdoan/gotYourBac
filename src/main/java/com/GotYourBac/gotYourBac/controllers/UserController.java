@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
@@ -51,15 +53,37 @@ public class UserController {
         return "profile";
     }
 
-//    @PutMapping("/update/{id}")
-//    public @ResponseBody String updateUser(@RequestBody ApplicationUser loggedInUser) {
-//        applicationUserRepository.save(loggedInUser);
-//        return "profileUpdate";
-//    }
+    @GetMapping("/profile/update")
+    public String getUpdatePage(Principal p, Model m) {
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("loggedInUser", loggedInUser);
+        return "profileUpdate";
+    }
+
+    @PutMapping("/profile/update")
+    public RedirectView updateUser(Principal p, String username, String firstName, String lastName, String gender, String height, String weight) {
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+        loggedInUser.setUsername(username);
+        loggedInUser.setFirstName(firstName);
+        loggedInUser.setLastName(lastName);
+        loggedInUser.setGender(gender);
+        loggedInUser.setHeight(Double.parseDouble(height));
+        loggedInUser.setWeight(Float.parseFloat(weight));
+        applicationUserRepository.save(loggedInUser);
+        return new RedirectView("/profile");
+    }
+
+    @DeleteMapping("/profile/delete")
+    public RedirectView deleteUser(Principal p){
+        ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
+        applicationUserRepository.delete(currentUser);
+        return new RedirectView("/");
+    }
 
 
     @GetMapping("/login")
     public String loginAsAUser(){
         return "login";
     }
+
 }
