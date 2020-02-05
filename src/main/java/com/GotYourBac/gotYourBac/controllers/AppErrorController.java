@@ -1,4 +1,4 @@
-package com.GotYourBac.gotYourBac.controllers;
+//package com.GotYourBac.gotYourBac.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
-
+//
 //https://www.baeldung.com/spring-boot-custom-error-page
 
     @Controller

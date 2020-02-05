@@ -42,6 +42,9 @@ public class DrinkController {
         m.addAttribute("listOfDrinks", listOfDrinks);
         m.addAttribute("principal", p.getName());
 
+        drunkUser.calculateBAC();
+        System.out.println("listOfDrinks = " + drunkUser.calculateBAC());
+
         return "drinks";
     }
 
@@ -66,9 +69,11 @@ public class DrinkController {
         newDrink.numOfDrinks = numberOfDrinks;
         newDrink.drinkSize = drinkSize;
         drinkRepository.save(newDrink);
-        System.out.println("drink = " + newDrink);
+
 
         return new RedirectView("/drinks");
+
+
     };
 
     @GetMapping("/balmer")
