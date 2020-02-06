@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HappyHourController {
 
-    @MessageMapping("/chat")
-    @SendTo("/topic/message")
-    public HappyHour send(Message message) throws Exception{
+    @MessageMapping("/hhchat")
+    @SendTo("/topic/happyhour")
+    public HappyHour happyHour(Message message) throws Exception{
         Thread.sleep(1000);
         return new HappyHour(message.getName() + " has RSVP'd to OHANA!");
     }

@@ -19,7 +19,7 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/happyhour', function (happyhour) {
-            showHappyHour(JSON.parse(happyhour.body).content);
+            showHappyHour(JSON.parse(happyhour.body).name);
         });
 
     });
