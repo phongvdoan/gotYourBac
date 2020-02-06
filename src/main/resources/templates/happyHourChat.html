@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Happy Hour: RSVP Here</title>
+    <title>Happy Hour: RSVP Here, [[${username}]]</title>
     <script
             src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -30,7 +30,7 @@
             <form>
                 <div>
                     <label for="name">RSVP for HAPPY HOUR</label>
-                    <input type="text" id="name" placeholder="Your name here...">
+                    <input type="hidden" id="name" th:value="${firstName}">
                 </div>
                 <button id="send" type="submit">RSVP</button>
             </form>

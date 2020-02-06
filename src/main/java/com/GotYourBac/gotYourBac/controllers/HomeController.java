@@ -1,5 +1,8 @@
 package com.GotYourBac.gotYourBac.controllers;
 
+import com.GotYourBac.gotYourBac.models.ApplicationUser;
+import com.GotYourBac.gotYourBac.models.ApplicationUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +11,9 @@ import java.security.Principal;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    ApplicationUserRepository applicationUserRepository;
 
     @GetMapping("/")
     public String getHome(Principal p, Model m){
@@ -31,7 +37,10 @@ public class HomeController {
     @GetMapping("/hhchat")
     public  String getChat(Principal p, Model m){
         if(p != null){
+            ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
             m.addAttribute("username", p.getName());
+            m.addAttribute("firstName", currentUser.getFirstName());
+
         } else {
             m.addAttribute("username", "User");
         }
