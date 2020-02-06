@@ -32,7 +32,7 @@
                 <li><a href="/login">Login</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/drinks">Calculate</a></li>
-                <li><a href="/balmer">BallmerPeak</a></li>
+                <li><a href="/forScience">For Science</a></li>
                 <li><a href="/logout">Log out</a></li>
             </nav>
         </div>
@@ -42,10 +42,16 @@
     <div>
 
         <div class="fixedContent">
-            <h2>Add Drinks</h2>
-            <form action="/addDrinks" method="POST">
+            <h2>How this works</h2>
+            <h3>We are using an equation called the Widmark Method for calculating BAC</h3>
+            <h3>BAC = [Alcohol consumed in grams / (Body weight in grams x R)]</h3>
+            <h4>BAC Level</h4>
+            <h5 th:text="${BAC == 0.0} ? 'Add a drink to calculate BAC.' : ${BAC}"></h5>
+            <p th:text="${BAC == 0.0 } ? '' : ${chartBAC}"></p>
+
+            <form class="formElement"  action="/addDrinks" method="POST">
                 <label>Please select a drink: </label>
-                <select name="drinkName" required>
+                <select class="select" name="drinkName" required>
                     <option value="vodka">Vodka</option>
                     <option value="beer">Beer</option>
                     <option value="gin">Gin</option>
@@ -58,20 +64,20 @@
                 <br>
 
                 <label>Select the size of drink:</label>
-                <select name="drinkSize">
+                <select class="select" name="drinkSize">
                     <option value="1.5">1.5 oz</option>
                     <option value="5">5 oz</option>
                     <option value="12">12 oz</option>
                 </select>
                 <br>
                 <br>
-                <input type="submit" value="Add Drink">
+                <input id="button" type="submit" value="Add Drink">
             </form>
 
             <table>
 
                 <th:block th:each="drink : ${listOfDrinks}">
-                    <form th:action="@{'/drinks/update'}" th:method="put">
+                    <form class="formElement" th:action="@{'/drinks/update'}" th:method="put">
                         <input type="hidden" name="_method" value="put">
                         <input type="hidden" name="id" th:value="${drink.id}">
                         <td th:text="${drink?.strIngredient}"></td>
@@ -84,7 +90,7 @@
                             <option value="12">12 oz</option>
                         </select>
 
-                        <td><button type="submit">Update</button></td>
+                        <td><button class="button" type="submit">Update</button></td>
                     </form>
                           <td>
                               <form th:action="@{'/drinks/delete'}" th:method="delete">
@@ -96,9 +102,7 @@
                         </tr>
                 </th:block>
             </table>
-            <h4>BAC Level</h4>
-            <h5 th:text="${BAC == 0.0} ? 'Add a drink to calculate BAC.' : ${BAC}"></h5>
-            <p th:text="${BAC == 0.0 } ? '' : ${chartBAC}"></p>
+
         </div>
     </div>
         </main>
