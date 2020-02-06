@@ -50,7 +50,7 @@ public class DrinkController {
         return "drinks";
     }
 
-    @PostMapping("/drinks")
+    @PostMapping("/addDrinks")
     public RedirectView addADrink(Principal p,Model m, String drinkName, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
@@ -88,11 +88,4 @@ public class DrinkController {
         return new RedirectView("/drinks");
     }
 
-
-
-
-    @GetMapping("/balmer")
-    public String getBalmerInfo(){
-        return "balmerPeak";
-    }
 }
