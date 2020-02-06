@@ -32,6 +32,7 @@
             </nav>
         </div>
     </div>
+
     <div class="fixedContent formDiv" >
         <div th:if="${param.error}">
             <p>Username and/or password was incorrect. Please try again.</p>
@@ -50,7 +51,6 @@
             </div>
                 <button class="button" type="submit">Login</button>
         </form>
-        <a href="/registration"><button type="button">Register</button></a>
     </div>
 </main>
 <footer th:insert="fragments/footer.html :: footer"></footer>
