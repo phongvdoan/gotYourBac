@@ -158,6 +158,11 @@ margin-left: 60pt;
 
 }
 
+label {
+  display: inline-block;
+  width: 250px;
+}
+
 .select {
   color: gray;
   padding: 8px 16px;
