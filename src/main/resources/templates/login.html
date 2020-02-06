@@ -27,7 +27,7 @@
                 <li><a href="/login">Login</a></li>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/drinks">Calculate</a></li>
-                <li><a href="/balmer">BallmerPeak</a></li>
+                <li><a href="/forScience">For Science</a></li>
                 <li><a href="/logout">Log out</a></li>
             </nav>
         </div>
@@ -42,16 +42,15 @@
             <h2>Login here:</h2>
             <div class="formElement">
                 <label>Username:</label>
-                <input type="text" name="username" onkeyup="this.value = this.value.toUpperCase();">
+                <input type="text" name="username" onkeyup="this.value = this.value.;">
             </div>
             <div class="formElement">
                 <label>Password:</label>
                 <input type="password" name="password">
             </div>
-
                 <button class="button" type="submit">Login</button>
-
         </form>
+        <a href="/registration"><button type="button">Register</button></a>
     </div>
 </main>
 <footer th:insert="fragments/footer.html :: footer"></footer>
