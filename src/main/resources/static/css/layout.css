@@ -29,7 +29,7 @@
 
 #aboutUsCard li img {
     width: 200px;
-    height: 200px;
+    height: 230px;
 }
 
 footer {
@@ -48,11 +48,6 @@ footer nav  ul li {
     display: inline-block;
     padding: 2%;
     font-size: 1.5em;
-}
-
-#aboutUsCard li img {
-    width: 200px;
-    height: 200px;
 }
 
 .formDiv {
