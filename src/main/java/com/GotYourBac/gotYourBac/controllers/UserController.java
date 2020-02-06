@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -59,7 +60,7 @@ public class UserController {
         return "profileUpdate";
     }
 
-    @PutMapping("/update")
+    @PutMapping("/profile/update")
     public RedirectView updateUser(Principal p, String username, String firstName, String lastName, String gender, String height, String weight) {
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
         loggedInUser.setUsername(username);
@@ -72,9 +73,16 @@ public class UserController {
         return new RedirectView("/profile");
     }
 
+    @DeleteMapping("/profile/delete")
+    public RedirectView deleteUser(Principal p){
+        ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
+        applicationUserRepository.delete(currentUser);
+        return new RedirectView("/");
+    }
 
     @GetMapping("/login")
     public String loginAsAUser(){
         return "login";
     }
-}
+
+};
