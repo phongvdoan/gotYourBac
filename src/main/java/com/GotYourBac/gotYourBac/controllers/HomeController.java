@@ -34,15 +34,16 @@ public class HomeController {
         }
         return "aboutus";
     }
+
     @GetMapping("/hhchat")
     public  String getChat(Principal p, Model m){
         if(p != null){
             ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
             m.addAttribute("username", p.getName());
             m.addAttribute("firstName", currentUser.getFirstName());
-
         } else {
             m.addAttribute("username", "User");
+            m.addAttribute("firstName", "User");
         }
         return "happyHourChat";
     }
