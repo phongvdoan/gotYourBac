@@ -3,16 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Add Drinks</title>
+    <title>BAC Calculator</title>
 </head>
 
 <body>
     <header th:insert="fragments/header.html :: header"></header>
     <main>
         <nav th:insert="fragments/navigation.html :: navigation"></nav>
-        <h2>Add Drinks</h2>
+
+
+        <h3>Hello, [[${principal}]]. Welcome to the BAC calculator. </h3>
+        <h4>Add Drinks</h4>
         <form action="/addDrinks" method="POST">
-            <h3>Add Drinks</h3>
+
             <label>Please select a drink: </label>
 
             <select name="drinkName" required>
@@ -23,6 +26,7 @@
                 <option value="whiskey">Whiskey</option>
                 <option value="wine">Wine</option>
             </select>
+
             <br>
             <br>
 
@@ -33,10 +37,11 @@
                 <option value="1.5">1.5 oz</option>
 
             </select>
+
             <br>
             <br>
 
-            <input type="submit" value="Add">
+            <input type="submit" value="Add Drink">
 
         </form>
 
@@ -74,9 +79,9 @@
 
         </table>
         <h4>BAC Level</h4>
-        <h5 th:text="${BAC}"></h5>
+        <h5 th:text="${BAC == 0.0} ? 'Add a drink to calculate BAC.' : ${BAC}"></h5>
 
-        <p th:text="${chartBAC}"></p>
+        <p th:text="${BAC == 0.0 } ? '' : ${chartBAC}"></p>
     </main>
     <footer th:insert="fragments/footer.html :: footer"></footer>
 

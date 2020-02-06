@@ -50,7 +50,7 @@ public class DrinkController {
         return "drinks";
     }
 
-    @PostMapping("/addDrinks")
+    @PostMapping("/drinks")
     public RedirectView addADrink(Principal p,Model m, String drinkName, float drinkSize) throws IOException{
 
         Gson gson = new Gson();
