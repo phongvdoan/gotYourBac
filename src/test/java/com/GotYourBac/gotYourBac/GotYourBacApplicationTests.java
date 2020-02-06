@@ -61,4 +61,16 @@ class GotYourBacApplicationTests {
 //				.andExpect(content().string(containsString("<h2>Users Profile</h2>")));
 //	}
 
+//TODO: Example Post Test
+//	@Test
+//	public void givenGreetURIWithPostAndFormData_whenMockMVC_thenResponseOK() {
+//		this.mockMvc.perform(post("/greetWithPostAndFormData").param("id", "1")
+//				.param("name", "John Doe")).andDo(print()).andExpect(status().isOk())
+//
+//				.andExpect(content().contentType("application/json;charset=UTF-8"))
+//				.andExpect(jsonPath("$.message").value("Hello World John Doe!!!"))
+//				.andExpect(jsonPath("$.id").value(1));
+//	}
+
+
 }

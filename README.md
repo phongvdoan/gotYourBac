@@ -19,7 +19,7 @@ Users and the drinks have many to many relationship because one user can have mo
 BAC level are unique to each individual so they have one to one relationship.
 
 
-![ERD](assets/database.png)
+![ERD](assets/erd.png)
 
 ## WireFrame
 This wireframe provides the structure for the rest of the pages in our website
