@@ -35,6 +35,16 @@ public class HomeController {
         return "aboutus";
     }
 
+    @GetMapping("/forScience")
+    public String getForSciencePage(Principal p, Model m){
+        if(p != null){
+            m.addAttribute("username", p.getName());
+        } else {
+            m.addAttribute("username", "User");
+        }
+        return "forScience";
+    }
+
     @GetMapping("/hhchat")
     public  String getChat(Principal p, Model m){
         if(p != null){
