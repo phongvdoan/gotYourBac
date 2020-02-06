@@ -40,7 +40,7 @@
         <form action="/login" method="post">
             <div class="formElement">
                 <label>Username:</label>
-                <input type="text" name="username" onkeyup="this.value = this.value.toUpperCase();">
+                <input type="text" name="username" onkeyup="this.value = this.value.;">
             </div>
             <div class="formElement">
                 <label>Password:</label>
@@ -49,9 +49,9 @@
             <div class="formElement">
                 <button type="submit">Login</button>
                 <br>
-                <a href="/registration"><button type="button">Register</button></a>
             </div>
         </form>
+        <a href="/registration"><button type="button">Register</button></a>
     </div>
 </main>
 <footer th:insert="fragments/footer.html :: footer"></footer>
