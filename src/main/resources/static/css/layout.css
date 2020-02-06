@@ -32,24 +32,6 @@
     height: 230px;
 }
 
-footer {
-    position: relative;
-    left: 0;
-    bottom: 2%;
-    width: 100%;
-    color: white;
-    text-align: right;
-}
-footer nav ul {
-    list-style: none;
-}
-footer nav  ul li {
-    color: dodgerblue;
-    display: inline-block;
-    padding: 2%;
-    font-size: 1.5em;
-}
-
 .formDiv {
     text-align: center;
     width: 35%;
@@ -83,14 +65,7 @@ height: 30px;
     text-align: left;
 }
 
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 80%;
-    color: white;
-    text-align: right;
-}
+
 footer nav ul {
     list-style: none;
 }
@@ -100,4 +75,13 @@ footer nav ul li {
     display: inline-block;
     padding: 2%;
     font-size: 1.5em;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
 }
