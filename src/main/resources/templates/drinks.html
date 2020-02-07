@@ -97,7 +97,7 @@
                               <form th:action="@{'/drinks/delete'}" th:method="delete">
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="hidden" name="id" th:value="${drink.id}">
-                                <button class="button" type="submit"><img src="/images/deleteIcon.png" alt="Delete Icon"></button>
+                                  <input type="submit" value="Delete">
                             </form>
                           </td>
                         </tr>
