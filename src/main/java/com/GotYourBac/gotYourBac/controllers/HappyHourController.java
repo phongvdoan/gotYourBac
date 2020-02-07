@@ -16,3 +16,4 @@ public class HappyHourController {
         return new HappyHour(message.getName() + " has RSVP'd to OHANA!");
     }
 }
+
