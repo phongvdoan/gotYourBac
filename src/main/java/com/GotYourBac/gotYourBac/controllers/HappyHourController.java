@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class HappyHourController {
 
-    @MessageMapping("/hhchat")
+    @MessageMapping("/happyhour")
     @SendTo("/topic/happyhour")
     public HappyHour happyHour(Message message) throws Exception{
         Thread.sleep(1000);
