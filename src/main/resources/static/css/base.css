@@ -106,18 +106,20 @@ p {
   transform: translate3d(0, 0, 0);
   transition: transform .3s;
   color: #263249;
+  font-family: 'Roboto', sans-serif;
 
 }
 
 
 
 .fixedContent {
-font-family: 'Lora', serif;
+font-family: 'Roboto', sans-serif;
 font-size: 15px;
 list-style-type: none;
  background: #eee;
 margin-left:50%;
 margin-top: 10%
+ color: #263249;
 }
 
 .button {
