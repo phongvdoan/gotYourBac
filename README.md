@@ -36,26 +36,17 @@ This wireframe provides the structure for the rest of the pages in our website
 ![Day 3 diagram](assets/Day3.jpg)
 
 ## Setup instructions
-* To visit our site go to : https://got-your-bac.herokuapp.com/
+* On terminal, type `psql`
 
-* You can also visit our GitHub Repository and run it on your local machine
-
-* To do that follow these steps:
-
-* Visit this site and select “Clone or Download” https://github.com/GotYourBac/gotYourBac
-
-* Open the project directory in your favorite text editor
-
-* On terminal, type psql
-
-* type CREATE DATABASE gotyourbac;
+* type `CREATE DATABASE gotyourbac;`
 
 * Edit Configuration for the App on the top mid right dropdown menu.
 
 * In the Environment Variable:
 
-    * type DATABASE_URL=postgresql://localhost:5432/gotyourbac
-    * Run the Application
+    * type `DATABASE_URL=postgresql://localhost:5432/gotyourbac`
+     
+* Run the Application
 
 
 
